@@ -45,7 +45,7 @@ my @unique_addresses = keys (%addresses);
 my $addr_list = "";
 foreach $addr (@unique_addresses) { $addr_list .= " $addr"; }
 
-if (!open(ADDRLIST, "addr2lineArm32 -e $exe_name $addr_list |")) { die "Failed to resolve addresses"; }
+if (!open(ADDRLIST, "addr2line -e $exe_name $addr_list |")) { die "Failed to resolve addresses"; }
 my $addr_idx = 0;
 while (<ADDRLIST>) {
    chomp;
